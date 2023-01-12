@@ -1,9 +1,9 @@
 """Provides a scripting component.
     Inputs:
-        List: The list of heights data from osm
-        MPStorey: meters per storey
-        MINStoreys: minimum number of storey
-        MAXStoreys: maximum number of storey
+        List: The list of heights data from osm.
+        MPStorey: number slider input for meters per storey.
+        MINStoreys: number slider input for minimum number of storey.
+        MAXStoreys: number slider input for maximum number of storey.
     Output:
         Heights: Create random heights for null"""
         
