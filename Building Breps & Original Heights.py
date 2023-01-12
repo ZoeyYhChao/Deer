@@ -1,10 +1,10 @@
 """Provides a scripting component.
     Inputs:
-        osm: from osm file
+        osm: from osm file.
     Output:
         heights: buildings height.
-        breps: xx
-        meta: yy
+        breps: key: building breps.
+        meta: additional information from osm.
         """
 
 __author__ = "dpwinter & zoeyYhChao"
