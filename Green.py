@@ -2,7 +2,8 @@
     Inputs:
         osm: from osm file.
     Output:
-        green: outputs the key:leisure breps.
+        leisure: output breps of leisure.
+        natural: output breps of natural.
         """
 
 __author__ = "zoeyzhao"
@@ -90,7 +91,8 @@ def pts_from_way(way):
     return pts
     
 # Things to keep track of 
-green = []
+leisure = []
+natural = []
 
 # 5. Parse relations, create brep, track
 for relation in root.findall('relation'):
@@ -110,14 +112,42 @@ for relation in root.findall('relation'):
                         osrfs.append(srf)
         
         brep = srfdiff(isrfs,osrfs)
-        green.append(brep)
+        leisure.append(brep)
+        
+for relation in root.findall('relation'):
+    if relation.find("tag[@k='natural']") is not None:
+        isrfs, osrfs = [], []
+
+        for member in relation.findall("member[@type='way']"):
+            way_id, role = member.attrib['ref'], member.attrib['role']
+            way = root.find("way[@id='%s']" % way_id)
+            if way:
+                pts = pts_from_way(way)
+                srf = pts2srf(pts)
+                if srf:
+                    if role == 'inner' or role == 'part': 
+                        isrfs.append(srf)
+                    if role == 'outer' or role == 'outline': 
+                        osrfs.append(srf)
+        
+        brep = srfdiff(isrfs,osrfs)
+        natural.append(brep)
  
 # process all ways
 for way in root.findall('way'):
-    if way.find("tag[@k='leisure']") is not None:
+    #if way.find("tag[@k='leisure']") is not None:
+    if way.find("tag[@k='water*']") is not None:
 
         pts = pts_from_way(way)
         brep = pts2srf(pts)
-        green.append(brep)
+        leisure.append(brep)
 
-green = th.list_to_tree(green)
+for way in root.findall('way'):
+    if way.find("tag[@k='natural']") is not None:
+
+        pts = pts_from_way(way)
+        brep = pts2srf(pts)
+        natural.append(brep)
+
+leisure = th.list_to_tree(leisure)
+natural = th.list_to_tree(natural)
