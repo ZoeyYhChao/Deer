@@ -1,6 +1,9 @@
 """Provides a scripting component.
     Inputs:
         List: The list of heights data from osm
+        MPStorey: meters per storey
+        MINStoreys: minimum number of storey
+        MAXStoreys: maximum number of storey
     Output:
         Heights: Create random heights for null"""
         
@@ -14,12 +17,25 @@ import ghpythonlib.treehelpers as th
 import random
 import math
 
-m_per_storey = 3
-min_storeys = 2
-max_storeys = 11
+def height():
+    
+    def MPStorey(meters):
+        for mps in range(meters):
+            print MINStoreys(meters)
+                
+    def MINStoreys(minimum):
+        for mins in range(minimum):
+            print MAXStoreys(minimum)
+                
+    def MAXStoreys(maximum):
+        for maxs in range(maximum):
+            print()
+            
+height()
 
 for i in range (len(List)):
     if List[i] == None:
-        List[i] = random.randrange(min_storeys, max_storeys+1)
+        List[i] = random.randrange(MPStorey * MINStoreys, MPStorey * MAXStoreys + 1)
+
 
 Heights = th.list_to_tree(List)
