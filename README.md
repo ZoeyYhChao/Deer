@@ -1,4 +1,4 @@
-# Deer-wip
+# Deer
 Output beeps and random heights for null.
 
 Deer is wip plug-in for Grasshopper 3D, each branches are for 1 single GHPython component in Grasshopper 3D.
