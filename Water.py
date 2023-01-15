@@ -6,7 +6,7 @@
         """
 #additional component not necessary for Deer in general
 
-__author__ = "zoeyzhao"
+__author__ = "zoeychao"
 
 import rhinoscriptsyntax as rs
 import xml.etree.ElementTree as ET
