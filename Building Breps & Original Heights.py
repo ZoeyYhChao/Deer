@@ -4,7 +4,7 @@
     Output:
         heights: buildings height.
         breps: key building breps.
-        meta: additional information from osm.
+        meta: additional information from osm, key to identify ways.
         """
 
 __author__ = "dpwinter & zoeyYhChao"
