@@ -6,7 +6,7 @@
         natural: output breps of natural.
         """
 
-__author__ = "zoeyzhao"
+__author__ = "zoeychao"
 
 import rhinoscriptsyntax as rs
 import xml.etree.ElementTree as ET
