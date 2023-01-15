@@ -3,7 +3,7 @@
         osm: from osm file.
     Output:
         heights: buildings height.
-        breps: key: building breps.
+        breps: key building breps.
         meta: additional information from osm.
         """
 
