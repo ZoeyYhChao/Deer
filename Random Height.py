@@ -35,7 +35,7 @@ height()
 
 for i in range (len(List)):
     if List[i] == None:
-        List[i] = random.randrange(MPStorey * MINStoreys, MPStorey * MAXStoreys + 1)
+        List[i] = random.randrange(MINStoreys, MAXStoreys + 1) * MPStorey
 
 
 Heights = th.list_to_tree(List)
